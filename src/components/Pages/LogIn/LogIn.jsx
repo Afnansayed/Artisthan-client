@@ -3,7 +3,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/Provider";
 const LogIn = () => {
-    const {logInUser} = useContext(AuthContext);
+    const {logInUser,google} = useContext(AuthContext);
     
     const handleLogIn = e => {
         e.preventDefault();
@@ -20,6 +20,17 @@ const LogIn = () => {
             console.log(error)
         })
     }
+
+            //google
+            const handleGoogle =() => {
+                google()
+                .then(res => {
+                    console.log(res.user)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+             }
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -46,8 +57,8 @@ const LogIn = () => {
                         </div>
                     </form>
                     <div className="flex justify-center gap-3">
-                        <p className="btn bg-blue-700 hover:bg-sky-500"><FaGoogle className="text-[#ffffff]" /></p>
-                        <p className="btn bg-blue-700 hover:bg-sky-500"><FaGithub className="text-[#ffffff]" /></p>
+                        <p className="btn bg-blue-700 hover:bg-sky-500" onClick={handleGoogle}><FaGoogle className="text-[#ffffff]" /></p>
+                        <p className="btn bg-blue-700 hover:bg-sky-500" ><FaGithub className="text-[#ffffff]" /></p>
                     </div>
                    <p className="p-5">If you do not have an account please <Link to='/register' className="text-blue-400">create a Account</Link></p>
                 </div>
