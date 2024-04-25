@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/Provider";
 const LogIn = () => {
+    const {name} = useContext(AuthContext);
+    console.log(name)
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content">
