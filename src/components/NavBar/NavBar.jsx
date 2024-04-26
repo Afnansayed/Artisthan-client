@@ -1,14 +1,30 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/Provider";
 
 
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext);
     const navLink = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Home</NavLink></li>
         {/*  */}
-        <li><NavLink to='/logIn' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Log In</NavLink></li>
-        {/*  */}
-        <li><NavLink to='/register' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Register</NavLink></li>
+        {
+            user ? '' : <li><NavLink to='/logIn' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Log In</NavLink></li>
+        }
+        {
+            user ? '' : <li><NavLink to='/register' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Register</NavLink></li>
+        }
     </>
+    const handleLogOut = () => {
+        console.log('logOut')
+        logOut()
+            .then(() => {
+                console.log('signOut SuccessFul');
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -28,12 +44,19 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-                <div className="avatar">
-                    <div className="w-12 rounded-full">
-                        <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                {user &&
+                    <div className="avatar tooltip tooltip-bottom" data-tip={user?.displayName
+                    }>
+                        <div className="w-12 rounded-full">
+                            <img src={user?.photoURL} />
+                        </div>
                     </div>
-                </div>
-                <a className="btn">Button</a>
+                }
+
+                {
+                    user ? <a className="btn bg-blue-700 hover:bg-sky-500 text-[#ffffff]" onClick={handleLogOut}>Log Out</a> : <Link to='/logIn'><p className="btn bg-blue-700 hover:bg-sky-500 text-[#ffffff]">LogIn</p></Link>
+                }
+
             </div>
         </div>
     );
