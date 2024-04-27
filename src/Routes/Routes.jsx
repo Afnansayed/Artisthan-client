@@ -27,7 +27,8 @@ import PrivateRoute from "../Layouts/PrivateRoutes/PrivateRoute";
                 element: <PrivateRoute><AddArt/></PrivateRoute> 
             },{
                 path:'/artList',
-                element: <PrivateRoute><Artlist/></PrivateRoute>
+                element: <PrivateRoute><Artlist/></PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/allArt')
             }
         ]
     }

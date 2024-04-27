@@ -4,8 +4,8 @@ import NavBar from "../../components/NavBar/NavBar";
 
 const Main = () => {
     return (
-        <div>
-            <div className="container mx-auto">
+        <div className="container mx-auto p-4">
+            <div>
                 <NavBar></NavBar>
             </div>
            <Outlet></Outlet> 
