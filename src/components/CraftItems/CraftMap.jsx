@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types'
 
 
 const CraftMap = ({ art }) => {
-    const { _id,image, item_name, subcategory_Name, shortDescription, price, rating, customization, processing_time, stockStatus, userEmail, userName } = art;
+    const { _id,image, item_name, subcategory_Name, shortDescription, price, rating } = art;
     return (
         <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 mx-auto">
             <img src={image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
@@ -25,5 +25,7 @@ const CraftMap = ({ art }) => {
         </div>
     );
 };
-
+CraftMap.propTypes={
+    art:PropTypes.object
+}
 export default CraftMap;

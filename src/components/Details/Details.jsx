@@ -4,7 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const Details = () => {
     const data = useLoaderData();
     // console.log(data)
-    const { _id, image, item_name, subcategory_Name, shortDescription, price, rating, customization, processing_time, stockStatus, userEmail, userName } = data;
+    const {  image, item_name, subcategory_Name, shortDescription, price, rating, customization, processing_time, stockStatus, userEmail, userName } = data;
     return (
         <section>
             <div className="dark:bg-violet-600">

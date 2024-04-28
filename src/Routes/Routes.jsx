@@ -19,7 +19,7 @@ import Details from "../components/Details/Details";
                 element:<Home/>
             },{
                 path:'/:id',
-                element:<Details/>,
+                element:<PrivateRoute><Details/></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/allArt/${params.id}`)
             },{
                 path: '/logIn',

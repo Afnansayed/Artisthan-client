@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/Provider";
 import { useLoaderData } from "react-router-dom";
+import MyArtList from "./MyArtList";
 
 
 const Artlist = () => {
@@ -8,12 +9,22 @@ const Artlist = () => {
     const allArts = useLoaderData();
     console.log(allArts)
     const userArts = allArts.filter(arts => arts.userEmail === user.email)
-    console.log(userArts)
+   // console.log(userArts)
     
 
     return (
         <div>
-             <h2 className="text-center text-red-600">My art and craft List</h2>
+            <div>
+
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 w-full md:w-[80%] mx-auto gap-8">
+                {
+                    userArts.map(design => <MyArtList 
+                      key={design._id}
+                      design={design}
+                    ></MyArtList>)
+                }
+            </div>
         </div>
     );
 };
