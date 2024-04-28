@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 const CraftMap = ({ art }) => {
-    const { image, item_name, subcategory_Name, shortDescription, price, rating, customization, processing_time, stockStatus, userEmail, userName } = art;
+    const { _id,image, item_name, subcategory_Name, shortDescription, price, rating, customization, processing_time, stockStatus, userEmail, userName } = art;
     return (
         <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800 mx-auto">
             <img src={image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
@@ -18,7 +18,7 @@ const CraftMap = ({ art }) => {
                     <p className="font-semibold">Price: {price} <span className="text-green-400 font-bold text-xl">$</span></p>
                     <p className="font-semibold">Rating : {rating} </p>
                 </div>
-                <Link >
+                <Link to={`/${_id}`}>
                     <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 hover:bg-sky-500 dark:text-gray-50">View Details</button>
                 </Link>
             </div>

@@ -6,6 +6,7 @@ import Register from "../components/Pages/Register/Register";
 import AddArt from "../components/Pages/AddArt/AddArt";
 import Artlist from "../components/Pages/ArtList/Artlist";
 import PrivateRoute from "../Layouts/PrivateRoutes/PrivateRoute";
+import Details from "../components/Details/Details";
 
 
  const router = createBrowserRouter([
@@ -16,6 +17,10 @@ import PrivateRoute from "../Layouts/PrivateRoutes/PrivateRoute";
             {
                 path:'/',
                 element:<Home/>
+            },{
+                path:'/:id',
+                element:<Details/>,
+                loader: ({params}) => fetch(`http://localhost:5000/allArt/${params.id}`)
             },{
                 path: '/logIn',
                 element: <LogIn/>
