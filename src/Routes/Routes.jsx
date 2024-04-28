@@ -7,6 +7,7 @@ import AddArt from "../components/Pages/AddArt/AddArt";
 import Artlist from "../components/Pages/ArtList/Artlist";
 import PrivateRoute from "../Layouts/PrivateRoutes/PrivateRoute";
 import Details from "../components/Details/Details";
+import Update from "../components/Update/Update";
 
 
  const router = createBrowserRouter([
@@ -34,6 +35,10 @@ import Details from "../components/Details/Details";
                 path:'/artList',
                 element: <PrivateRoute><Artlist/></PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/allArt')
+            },{
+                path: '/update/:id',
+                element: <PrivateRoute><Update/></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/allArt/${params.id}`)
             }
         ]
     }

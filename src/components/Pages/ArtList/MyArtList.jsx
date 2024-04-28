@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/Provider";
-
+import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
 
 const MyArtList = ({ design }) => {
     const {user} = useContext(AuthContext)
-    const {image, item_name, subcategory_Name, shortDescription, price, rating, customization, processing_time, stockStatus, userEmail, userName} = design;
+    const {_id,image, item_name,  price, rating, customization,  stockStatus, userEmail, userName} = design;
     return (
         <div className="rounded-md shadow-md sm:w-96 lg:w-[500px] dark:bg-gray-50 dark:text-gray-800">
             <div className="flex items-center justify-between p-3">
@@ -37,6 +38,9 @@ const MyArtList = ({ design }) => {
                         <span className="text-base font-semibold"> Price : {price}</span> $ 
                     </p>
                     <p className="text-sm">
+                        <span className="text-base font-semibold"> Rating : {rating}</span>
+                    </p>
+                    <p className="text-sm">
                         <span className="text-base font-semibold"> Customization : {customization}</span> 
                     </p>
                     <p className="text-sm">
@@ -44,12 +48,17 @@ const MyArtList = ({ design }) => {
                     </p>
                 </div>
                 <div className="flex justify-around mt-5 ">
-                <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 hover:bg-sky-300">Update</button>
+                 <Link to={`/update/${_id}`}>
+                 <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 hover:bg-sky-300">Update</button>
+                 </Link>   
+                
                 <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 hover:bg-sky-300">Delete</button>
                 </div>
             </div>
         </div>
     );
 };
-
+MyArtList.propTypes ={
+    design:PropTypes.object
+}
 export default MyArtList;
