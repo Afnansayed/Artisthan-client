@@ -21,6 +21,7 @@ const AddArt = () => {
        const userEmail = form.get('userEmail');
        const userName = form.get('userName');
        const art = {image,item_name,subcategory_Name,shortDescription,price,rating,customization,processing_time,stockStatus,userEmail,userName}
+       //console.log(art)
 
        console.log(art);
        fetch('http://localhost:5000/allArt',{
@@ -103,7 +104,7 @@ const AddArt = () => {
                                 <span className="label-text"> Processing_time
                                 </span>
                             </label>
-                            <input type="text" placeholder=" Processing_time" className="input input-bordered" name=" processing_time" required />
+                            <input type="text" placeholder=" Processing_time" className="input input-bordered" name="processing_time" required />
                         </div>
                         {/* 9 */}
                         <div className="form-control">
