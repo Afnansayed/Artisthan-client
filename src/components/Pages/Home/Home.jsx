@@ -1,4 +1,6 @@
 import CraftItems from "../../CraftItems/CraftItems";
+import Footer from "../../Footer/Footer";
+import Gallery from "../../Gallery/Gallery";
 import Slider from "../../Slider/Slider";
 
 
@@ -10,6 +12,12 @@ const Home = () => {
              </div>
              <div className="mt-12">
                 <CraftItems/>
+             </div>
+             <div className="mt-12">
+                <Gallery/>
+             </div>
+             <div className="mt-12">
+                <Footer/>
              </div>
         </div>
     );

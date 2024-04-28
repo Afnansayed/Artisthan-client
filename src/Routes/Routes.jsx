@@ -21,7 +21,7 @@ import Update from "../components/Update/Update";
             },{
                 path:'/:id',
                 element:<PrivateRoute><Details/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/allArt/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-ten-server-rouge.vercel.app/allArt/${params.id}`)
             },{
                 path: '/logIn',
                 element: <LogIn/>
@@ -34,11 +34,11 @@ import Update from "../components/Update/Update";
             },{
                 path:'/artList',
                 element: <PrivateRoute><Artlist/></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/allArt')
+                loader: () => fetch('https://assignment-ten-server-rouge.vercel.app/allArt')
             },{
                 path: '/update/:id',
                 element: <PrivateRoute><Update/></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/allArt/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-ten-server-rouge.vercel.app/allArt/${params.id}`)
             }
         ]
     }

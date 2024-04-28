@@ -24,7 +24,7 @@ const AddArt = () => {
        //console.log(art)
 
        console.log(art);
-       fetch('http://localhost:5000/allArt',{
+       fetch('https://assignment-ten-server-rouge.vercel.app/allArt',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -46,7 +46,7 @@ const AddArt = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="w-[70%]">
+            <div className="w-full lg:w-[70%]">
                 <div className="card shrink-0 w-full  shadow-2xl bg-red-100">
                     <form onSubmit={handleAdd} className="card-body">
                         <div className="form-control">
