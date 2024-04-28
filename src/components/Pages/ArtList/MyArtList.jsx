@@ -2,10 +2,49 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/Provider";
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const MyArtList = ({ design }) => {
-    const {user} = useContext(AuthContext)
+const MyArtList = ({ design,arts,setArts }) => {
+    const {user} = useContext(AuthContext);
     const {_id,image, item_name,  price, rating, customization,  stockStatus, userEmail, userName} = design;
+
+    const handleDelete = _id => {
+             console.log(_id)
+          // Delete
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/allArt/${_id}`,{
+                    method:'DELETE'
+                })
+                .then(res=> res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.deletedCount === 1){
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                          });
+                          //
+                          const remainingArts = arts.filter(art => art._id !== _id);
+                          setArts(remainingArts)
+                    }
+                })
+              
+            }
+          });
+
+          
+
+    }
     return (
         <div className="rounded-md shadow-md sm:w-96 lg:w-[500px] dark:bg-gray-50 dark:text-gray-800">
             <div className="flex items-center justify-between p-3">
@@ -52,13 +91,15 @@ const MyArtList = ({ design }) => {
                  <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 hover:bg-sky-300">Update</button>
                  </Link>   
                 
-                <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 hover:bg-sky-300">Delete</button>
+                <button onClick={()=>handleDelete(_id)} type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-800 dark:text-gray-800 hover:bg-sky-300">Delete</button>
                 </div>
             </div>
         </div>
     );
 };
 MyArtList.propTypes ={
-    design:PropTypes.object
+    design:PropTypes.object,
+    arts:PropTypes.array,
+    setArts:PropTypes.func
 }
 export default MyArtList;
