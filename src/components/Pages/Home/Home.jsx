@@ -1,3 +1,4 @@
+import Coures from "../../Coures/Coures";
 import CraftItems from "../../CraftItems/CraftItems";
 import Footer from "../../Footer/Footer";
 import Gallery from "../../Gallery/Gallery";
@@ -12,6 +13,9 @@ const Home = () => {
              </div>
              <div className="mt-12">
                 <CraftItems/>
+             </div>
+             <div className="mt-12">
+                <Coures/>
              </div>
              <div className="mt-12">
                 <Gallery/>

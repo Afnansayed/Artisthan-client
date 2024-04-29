@@ -8,12 +8,14 @@ import Artlist from "../components/Pages/ArtList/Artlist";
 import PrivateRoute from "../Layouts/PrivateRoutes/PrivateRoute";
 import Details from "../components/Details/Details";
 import Update from "../components/Update/Update";
+import Error from "../components/Error/Error";
 
 
  const router = createBrowserRouter([
     {
         path:'/',
         element: <Main></Main>,
+        errorElement: <Error/>,
         children:[
             {
                 path:'/',
