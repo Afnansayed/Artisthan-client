@@ -13,7 +13,7 @@ const AllArtandCraft = () => {
                             <th className="p-3">No:</th>
                             <th className="p-3">Subcategory Name</th>
                             <th className="p-3">Artist Name</th>
-                            <th className="p-3">Rating</th>
+                            {/* <th className="p-3">Rating</th> */}
                             <th className="p-3 text-right">Price</th>
                             <th className="p-3 text-right">Link</th>
                         </tr>
@@ -24,11 +24,11 @@ const AllArtandCraft = () => {
                                 <td className="p-3">{idx + 1}</td>
                                 <td className="p-3">{art.subcategory_Name}</td>
                                 <td className="p-3">{art.userName}</td>
-                                <td className="p-3">{art.rating}</td>
+                                {/* <td className="p-3">{art.rating}</td> */}
                                 <td className="p-3 text-right">${art.price}</td>
                                 <td className="p-3 text-right">
                                     <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">
-                                        <Link to={`/${art._id}`}>View Details</Link>
+                                        <Link to={`/${art._id}`}>View</Link>
                                     </span>
                                 </td>
                             </tr>

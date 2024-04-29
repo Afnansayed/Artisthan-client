@@ -18,7 +18,7 @@ const CraftItems = () => {
 
     return (
         <div>
-             <div className=" rounded-xl mb-6 p-3">
+             <div className="rounded-xl mb-6 p-3">
                   <h2 className="text-sm lg:text-3xl font-semibold w-1/2 text-center mx-auto">Immerse Yourself in a World of Artistic Wonder: Explore Diverse Creations from Talented Artisans Around the Globe</h2> 
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
