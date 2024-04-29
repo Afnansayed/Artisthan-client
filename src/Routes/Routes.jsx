@@ -9,6 +9,7 @@ import PrivateRoute from "../Layouts/PrivateRoutes/PrivateRoute";
 import Details from "../components/Details/Details";
 import Update from "../components/Update/Update";
 import Error from "../components/Error/Error";
+import AllArtandCraft from "../components/Pages/AllArtandCraft/AllArtandCraft";
 
 
  const router = createBrowserRouter([
@@ -41,6 +42,10 @@ import Error from "../components/Error/Error";
                 path: '/update/:id',
                 element: <PrivateRoute><Update/></PrivateRoute>,
                 loader: ({params}) => fetch(`https://assignment-ten-server-rouge.vercel.app/allArt/${params.id}`)
+            },{
+                path:'/allArtList',
+                element: <AllArtandCraft/>,
+                loader: () => fetch('https://assignment-ten-server-rouge.vercel.app/allArt')
             }
         ]
     }

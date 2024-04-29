@@ -7,8 +7,12 @@ const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const navLink = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Home</NavLink></li>
+        {/* 2 */}
         <li><NavLink to='/addArt' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Add Craft Item</NavLink></li>
+        {/* 3 */}
         <li><NavLink to='/artList' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}> My Art &Craft </NavLink></li>
+        {/* 4 */}
+        <li><NavLink to='/allArtList' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}> All Art & craft List </NavLink></li>
         {/*  */}
         {
             user ? '' : <li><NavLink to='/logIn' className={({ isActive }) => isActive ? 'text-blue-400 font-bold border-blue-700 border-2 p-2' : 'font-bold border-1'}>Log In</NavLink></li>
