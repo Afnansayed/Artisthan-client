@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/Provider";
-
-
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [theme,setTheme] = useState(() => {
@@ -76,8 +76,17 @@ const NavBar = () => {
                     </label>
                 </div>
                 {user &&
-                    <div className="avatar tooltip tooltip-bottom" data-tip={user?.displayName
-                    }>
+                    <div id="first" className="avatar tooltip tooltip-bottom"
+                    // data-tip={user?.displayName
+                    // }
+                    >
+                          <ReactTooltip
+                          anchorId='first'
+                          place="top"
+                          content={user?.displayName}
+                          >
+                          </ReactTooltip>
+
                         <div className="w-12 rounded-full">
                             <img src={user?.photoURL} />
                         </div>
