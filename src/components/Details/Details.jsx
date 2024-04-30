@@ -18,8 +18,8 @@ const Details = () => {
                             <p className="font-semibold text-xl lg:text-3xl">Rating : {rating} </p>
                         </div>
                         <div className="flex gap-5 md:gap-24  items-center">
-                            <p className="font-semibold lg:text-3xl text-xl">Price: {customization} <span className="text-green-400 font-bold text-xl">$</span></p>
-                            <p className="font-semibold text-xl lg:text-3xl">Rating : {processing_time} </p>
+                            <p className="font-semibold lg:text-3xl text-xl">Custom: {customization} <span className="text-green-400 font-bold text-xl"></span></p>
+                            <p className="font-semibold text-xl lg:text-3xl">Processing Time : {processing_time} </p>
                         </div>
                         <p className="text-xl md:text-3xl font-semibold">Stock : {stockStatus}</p>
                     </div>
