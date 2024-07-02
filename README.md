@@ -34,7 +34,7 @@
    - Backend: `npm start` in the `server` directory
 
 ## Live Site
-- [Art & Craft Store Live Site](<live-site-url>)
+- https://assignment-10-b8ee6.web.app
 
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
